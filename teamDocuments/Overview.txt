@@ -1,0 +1,55 @@
+﻿Git-Hub:
+* Git clone https://github.com/npelland/University-App.git
+* Git Add ****
+* Git Commit -m ” ”
+* Git Push
+* Git Pull
+* Git Fetch
+
+
+Names
+* Class Connect
+* UNi
+
+
+Main Objectives
+* Connect with classmates from university
+* Share homework, test files, allow for study groups, lecture notes, general understanding of class, supplemental material
+* Focused on students
+
+
+General Ish
+* University based
+* User friendly (fuck reddit)
+* Suggested courses based on your university, major, and year
+* Study Groups
+* Give Monthly credits for people uploading tests/homework
+
+
+Home Page
+* Has feed from classes
+* Post option (like facebook)
+
+
+Account Page
+* First Name
+* Last Name
+* University
+* Year
+* Major
+* Email
+
+
+Course Page
+* General course information
+* Course feed
+
+
+Side Toolbar
+* Home
+* Courses
+   * Lectures
+   * Homework
+   * Tests
+   * Study Groups
+* Account
