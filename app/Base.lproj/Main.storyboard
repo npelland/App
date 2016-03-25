@@ -141,6 +141,6 @@
         <image name="Class" width="25" height="25"/>
         <image name="Home" width="25" height="25"/>
         <image name="User Male Filled" width="25" height="25"/>
-        <image name="mainBackround" width="416" height="626"/>
+        <image name="mainBackround" width="240" height="320"/>
     </resources>
 </document>
