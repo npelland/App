@@ -1,10 +1,11 @@
-﻿Git-Hub:
+Git-Hub:
 * Git clone https://github.com/npelland/University-App.git
 * Git Add ****
 * Git Commit -m ” ”
 * Git Push
 * Git Pull
 * Git Fetch
+* Git reset -—hard
 
 
 Names
