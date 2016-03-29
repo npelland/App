@@ -1,5 +1,5 @@
 Git-Hub:
-* Git clone https://github.com/npelland/University-App.git
+* Git clone https://github.com/npelland/App.git
 * Git Add ****
 * Git Commit -m ” ”
 * Git Push
