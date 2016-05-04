@@ -44,7 +44,7 @@ public class Database {
                         ["Adam", "https://upload.wikimedia.org/wikipedia/commons/1/1e/Large_Siamese_cat_tosses_a_mouse.jpg", "Im Black", "8=====>"],
                         ["Grant", "https://monkeysinmybag.files.wordpress.com/2012/05/ugly-guy.jpg?w=300","Goal", "Not I just need to get this info from an actual database"],
                         ["Nick", "https://i.ytimg.com/vi/fdMFwlNAv1U/maxresdefault.jpg", "TODO", "I still need to make this pretty, but getting the actua;l content to work is awesome!"],
-                        ["Anonamos", "https://i.ytimg.com/vi/UfgNuUwRyPk/maxresdefault.jpg",  "Please Help", "I have a BONER\n The professor is so HOT!"],
+                        ["Anonamos", "https://i.ytimg.com/vi/UfgNuUwRyPk/maxresdefault.jpg",  "Please Help", "Adam has a boner..."],
                         ["Nick", "https://averageguys.files.wordpress.com/2009/07/1241718622073.jpg", "<-- ANY PIC", "We can put ANY pic from the internet now:)"]
                         
         ]
