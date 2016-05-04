@@ -15,7 +15,6 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var courseName: UILabel!
 
-    NSMutableURLRequest
 
     var post: Post? {
         didSet {
