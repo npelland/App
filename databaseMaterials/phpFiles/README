@@ -1,0 +1,31 @@
+The file service.php is an example that works that I found online that Ill explain a bit to get you going
+	Line 4 needs to be replaced with username, password, and bd as required
+	Line 13 needs to be replaced with the table
+	So how it works is I input http://localhost/service.php and it returns the info in a json format.
+		This doesn’t seem very secure which is kinda weird, so it might be a little wrong.
+		For mac, I just put this in my /library/WebServer/Documents dir and it works
+
+Here is a link to another set of examples that looks more legit: http://swiftdeveloperblog.com/store-user-information-in-mysql-database/
+	It seems like its often php files that directly return the information desired, but i have seen thing where the file actually ends in .json, so you’d probably know more about that stuff than me
+
+
+So related to the example in that link above this is what I THINK ill need, Im still trying to understand this whole http body and request crap
+
+1.
+Similar to userRegister.php but maybe include some other columns that are in the DB you made
+It looks like there is supposed to be some kind of HTTPMethod referred to as “POST” and the HTTPbody is where i input the username, password and stuff. - this is where I was mainly confused, not sure what an HTTP post request is?
+
+2.
+
+
+
+
+
+
+
+Just start looking at this stuff and see if it makes sense to you. It’ll probably be easier for us to work together on this.
+
+
+
+Love,
+Nick
