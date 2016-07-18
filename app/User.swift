@@ -12,11 +12,15 @@ import Foundation
 public class User {
     
     let name: String?
+    let pass: String?
+    let university: String?
     let pic: NSURL?
     
-    init(name: String, picURLString: String) {
+    init(name: String, pass: String, unviserity: String, pic: String) {
         self.name = name
-        self.pic = NSURL(string: picURLString)
+        self.pass = pass
+        self.university = unviserity
+        self.pic = NSURL(string: pic)
     }
     
 }

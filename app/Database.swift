@@ -11,45 +11,96 @@ import Foundation
 
 public class Database {
     
-    public func getData() -> Array<Post> {
-        updateData()
-        var newData = Array<Post>()
-        for post in tempDatabase {
-            let user = User(name: post[0], picURLString: post[1])
-            let newPost = Post(author: user, title: post[2], text: post[3])
-            
-            newData.append(newPost)
+    
+    public func login(user: User) -> User? {
+        let thisUser = user.name!
+        let thisPass = user.pass!
+        let url = "http://192.168.1.8/phpmyadmin/service.php?user=\(thisUser)&pass=\(thisPass)"
+        do {
+            let text = try String(contentsOfURL: NSURL(string: url)!)
+            let dic = JSONParseDictionary(text)
+            print (dic)
+            if (dic.count != 0) {
+                let name = dic["Username"] as? String
+                let pass = dic["Password"] as? String
+                let univ = dic["University"] as? String
+                let pic = dic["Picture"] as? String
+                if (thisPass == pass) {
+                    let user = User(name: name!, pass: pass!, unviserity: univ!, pic: pic!)
+                    return user
+                } else {
+                    return nil
+                }
+            } else {
+                return nil
+            }
+        } catch let error as NSError {
+            print(error.localizedDescription)
+            return nil;
+        }
+    }
+    
+    //probably can combine with function above
+    public func doesUserExist(user: User) -> Bool {
+        let thisName = user.name!
+        let url = "http://192.168.1.8/phpmyadmin/service.php?user=\(thisName)"
+        do {
+            let text = try String(contentsOfURL: NSURL(string: url)!)
+            let dic = JSONParseDictionary(text)
+            print (dic)
+            if (dic.count != 0) {
+                return true
+            } else {
+                return false
+            }
+        } catch let error as NSError {
+            print(error.localizedDescription)
+            return false;
         }
         
-        return newData
     }
     
-    func count() -> Int {
-        return tempDatabase.count
+    
+    public func createUser(user: User) {
+        let thisUser = user.name!
+        let thisPass = user.pass!
+        let thisUnivFull = user.university!
+        let thisUniv = thisUnivFull.stringByReplacingOccurrencesOfString(" ", withString: "_")
+        let thisPic = String(user.pic!)
+        let url = "http://192.168.1.8/phpmyadmin/service.php?user=\(thisUser)&pass=\(thisPass)&univ=\(thisUniv)&pic=\(thisPic)&create=1"
+        print (url)
+        do {
+            let text = try String(contentsOfURL: NSURL(string: url)!)
+            print (text)
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
     }
     
-    func oldDataCount() -> Int {
-        return 1
-    }
     
-    func getPost(index: Int) -> Post {
-        return getData()[index]
-    }
+    func JSONParseDictionary(string: String) -> [String: AnyObject]{
+        
+        var newString = string.stringByReplacingOccurrencesOfString("]", withString: "")
+        newString = newString.stringByReplacingOccurrencesOfString("[", withString: "")
+        print (string)
+        if let data = newString.dataUsingEncoding(NSUTF8StringEncoding){
     
-    //This is what will need to be replaced with SQl stuff
-    var tempDatabase = Array<Array<String>>()
-    
-    func updateData() {
-        tempDatabase = [["Nick", "https://www.petfinder.com/wp-content/uploads/2013/09/cat-black-superstitious-fcs-cat-myths-162286659.jpg", "Testing", "The quick brown fox jumps over the lazy dog"],
-                        ["Adam", "https://upload.wikimedia.org/wikipedia/commons/1/1e/Large_Siamese_cat_tosses_a_mouse.jpg", "Im Black", "8=====>"],
-                        ["Grant", "https://monkeysinmybag.files.wordpress.com/2012/05/ugly-guy.jpg?w=300","Goal", "Not I just need to get this info from an actual database"],
-                        ["Nick", "https://i.ytimg.com/vi/fdMFwlNAv1U/maxresdefault.jpg", "TODO", "I still need to make this pretty, but getting the actua;l content to work is awesome!"],
-                        ["Anonamos", "https://i.ytimg.com/vi/UfgNuUwRyPk/maxresdefault.jpg",  "Please Help", "Adam has a boner..."],
-                        ["Nick", "https://averageguys.files.wordpress.com/2009/07/1241718622073.jpg", "<-- ANY PIC", "We can put ANY pic from the internet now:)"]
-                        
-        ]
+            do{
+                if let dictionary = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as? [String: AnyObject]{
+                    print (dictionary)
+                    return dictionary
+                    
+                }
+            }catch {
+                
+                print("error")
+            }
+        }
+        return [String: AnyObject]()
     }
+
     
 }
+
 
 
